@@ -7,4 +7,4 @@ model/처음부터 엘모 학습 코드는 아래 링크를 참조하여 에러 
 #https://github.com/allenai/bilm-tf
 #https://appliedmachinelearning.wordpress.com/2019/11/30/training-elmo-from-scratch-on-custom-data-set-for-generating-embeddings-tensorflow/
 
-처음부터 ELMo를 학습 시킬 땐
+처음부터 ELMo를 학습 시킬 땐 etc. 디렉토리 참고하여 학습
