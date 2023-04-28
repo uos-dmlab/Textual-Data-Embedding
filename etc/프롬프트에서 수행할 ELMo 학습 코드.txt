@@ -1,0 +1,8 @@
+#참고 사이트에서 코드로는 에러가 떠서 다시 작성한 ELMo 학습코드입니다.
+
+#학습
+python bin/train_elmo.py --train_prefix swb/train/* --vocab_file swb/vocab.txt --save_dir swb/checkpoint
+#검증
+python bin/run_test.py --test_prefix swb/dev/* --vocab_file swb/vocab.txt --save_dir swb/checkpoint
+#모델저장
+python bin/dump_weights.py --save_dir swb/checkpoint --outfile swb/swb_weights.hdf5
