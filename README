@@ -2,3 +2,9 @@ Glove 코드는 로이터 뉴스 데이터를 Glove 임베딩으로 큐보이드
 Glove 코드 내에서 LSTM과 머신러닝으로 분류한 뒤 성능도 측정해봄
 
 품사태그로 큐보이드 만들기(로이터) 품사 태깅을 활용해 큐보이드를 생성하고 TSM-DNN과 CTSM-DNN으로 분류해본 뒤 성능측정
+
+model/처음부터 엘모 학습 코드는 아래 링크를 참조하여 에러 수정
+#https://github.com/allenai/bilm-tf
+#https://appliedmachinelearning.wordpress.com/2019/11/30/training-elmo-from-scratch-on-custom-data-set-for-generating-embeddings-tensorflow/
+
+처음부터 ELMo를 학습 시킬 땐
