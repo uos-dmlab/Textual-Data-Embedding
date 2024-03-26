@@ -1,0 +1,8 @@
+
+1. ELMo or BERT 처음부터 학습(분류할 데이터셋으로 학습할 것, 깃허브에 ELMo 학습 코드)-(BERT는 허깅페이스 모델이 조금 더 좋은 성능)
+
+2. 위에서 학습한 ELMo(BERT)나 Large Copus에서 사전 학습된 ELMo(BERT)로 문서 단위 임베딩 -> elmo(bert)_embedding 디렉토리에 문서 내 단어의 임베딩 벡터값 저장(npy)
+
+3. 1-Channel TextCuboid 생성 코드로 TextCuboid 및 TextCuboid_test 생성
+
+4. 1-Channel TextCuboid 분류 혹은 2-Channel TextCuboid 분류 코드로 성능평가
