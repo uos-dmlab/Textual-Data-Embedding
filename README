@@ -1,16 +1,17 @@
-Before 2022.08 - model/Glove 코드는 로이터 뉴스 데이터를 Glove 임베딩으로 TextCuboid를 만들어서 실험한 코드.
+Before 2022.08 - model/GloVe is an experiment code that created a TextCuboid with GloVe embedding to classify Reuters news.
 
-2022.10 - model/품사태그로 큐보이드 만들기(로이터) 코드는 ELMo 임베딩 벡터와 품사 태깅을 활용해 TextCuboid를 생성하고 TSM-DNN과 CTSM-DNN으로 분류해본 뒤 성능측정
+2022.10 - model/품사태그로 큐보이드 만들기(로이터) This is an experimental code that creates a TextCuboid using ELMo embedding vectors and part-of-speech tagging and measures classification performance with classification models TSM-DNN and CTSM-DNN.
 
-2023.04 - model/듀얼(멀티) 채널 텍스트 큐보이드 20NG 분류 코드는 ELMo를 학습할 때 분류할 데이터셋 그리고 그와 유사한 데이터셋을 활용. 두 ELMo로 Dual-Channel TextCuboid를 만들어 분류 성능 개선
+2023.04 - model/듀얼(멀티) 채널 텍스트 큐보이드 This is an experiment to construct and classify a Dual-Channel TextCuboid using two ELMos pretrained from different datasets. There are two types of ELMo: One model is trained with (A), the dataset to be classified, and the other is a model trained with a dataset similar to (A).
 
-2024.03 - model/Multimodal TextCuboid 코드는 TextCuboid에 순서 정보를 포함시키기 위해 Transformer 구조 활용하여 분류 성능 개선
-          => Transformer classifier 코드의 모델 구조는 아래 링크 참조
+2024.03 - model/Multimodal This directory contains 2-Channel TextCuboid (Tensor Space Model) experiments proposed to improve the classification performance of TextCuboid. The 2-Channel TextCuboid (Tensor Space Model) can train semantic, context, and sequence information by utilizing the Transformer structure and TextCNN structure.
+         
+          => The model structure used in the Transformer classifier code is referenced in the link below.
             #https://keras.io/examples/nlp/text_classification_with_transformer/
 -------------------------------------------------------------------------------------------------------------------------
 
-model/처음부터 엘모 학습 코드는 아래 링크를 참조
+model/처음부터 엘모 학습 This code is referenced from the link below.
 #https://github.com/allenai/bilm-tf
 #https://appliedmachinelearning.wordpress.com/2019/11/30/training-elmo-from-scratch-on-custom-data-set-for-generating-embeddings-tensorflow/
 
-처음부터 ELMo를 학습 시킬 땐 etc. 디렉토리 참고하여 학습
+If you are training ELMo from scratch, you can refer to the (etc.) to train.
