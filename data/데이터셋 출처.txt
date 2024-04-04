@@ -1,0 +1,12 @@
+IMDB: https://ai.stanford.edu/~amaas/data/sentiment/
+
+WELFake: https://www.kaggle.com/datasets/saurabhshahane/fake-news-classification
+
+20Newsgroups: http://qwone.com/~jason/20Newsgroups/
+
+Reuters news: https://github.com/keras-team/keras/blob/v2.15.0/keras/datasets/reuters.py
+- 로이터 뉴스는 케라스 내 패키지를 통해 load
+
+News Category: https://www.kaggle.com/datasets/rmisra/news-category-dataset
+
+AG news: https://www.kaggle.com/datasets/amananandrai/ag-news-classification-dataset
