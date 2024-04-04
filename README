@@ -9,9 +9,6 @@ Before 2022.08 - model/Glove 코드는 로이터 뉴스 데이터를 Glove 임�
             #https://keras.io/examples/nlp/text_classification_with_transformer/
 -------------------------------------------------------------------------------------------------------------------------
 
-model/bert 코드는 처음부터 BERT를 학습할 수 있는 코드 아래 링크를 참조
-#https://colab.research.google.com/drive/1An1VNpKKMRVrwcdQQNSe7Omh_fl2Gj-2?usp=sharing
-
 model/처음부터 엘모 학습 코드는 아래 링크를 참조
 #https://github.com/allenai/bilm-tf
 #https://appliedmachinelearning.wordpress.com/2019/11/30/training-elmo-from-scratch-on-custom-data-set-for-generating-embeddings-tensorflow/
