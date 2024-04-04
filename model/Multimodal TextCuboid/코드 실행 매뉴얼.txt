@@ -1,0 +1,67 @@
+Requirements에 따른 가상환경 (elem)과 (base)가 존재한다고 가정
+--------------------------------------------------------------------------------------------------------------
+	ELMo를 활용한 모델을 사용한 경우: 1-Channel TextCuboid(Tensor Space Model) 또는 2-Channel TextCuboid(Tensor Space Model)
+	사전 학습된 ELMo 모델이 존재할 경우 1번 과정 생략 가능 – 사전 학습된 모델명 예시 model(IMDB256)
+1.	ELMo를 분류할 데이터셋으로 pre-training이 필요
+깃허브/Textual-Data-Embedding/model/처음부터 ELMo 학습/bilm-tf-master 디렉토리를 다운받아 수행
+①	(base) 가상환경에서 수행
+②	<분류할 데이터>로 ELMo 학습데이터 만들기 실행
+③	이 파일 내에서 options.json 파일이 생성되는데 Number of tokens in Training data와 Size of Vocab에 따라 options의 n_train_tokens, n_tokens_vocab 값을 수정
+④	Number of tokens in Training data와 Size of Vocab의 값은 코드 내 print 문을 통해 확인이 가능
+⑤	수정된 options.json 파일이 ./swb/checkpoint에 생성됨 또한 swb 디렉토리에 vocab.txt 파일도 생성됨
+⑥	bilm-tf-master/bin/train_elmo.py 에서 n_train_tokens 값도 Number of tokens in Training data 따라 위와 같이 수정
+⑦	Anaconda prompt (elem) 환경으로 변경
+⑧	cd 명령문으로 bilm-tf-master으로 디렉토리 변경 후 아래 코드를 실행하여 ELMo 모델 학습
+python bin/train_elmo.py --train_prefix swb/train/* --vocab_file swb/vocab.txt --save_dir swb/checkpoint
+⑨	학습이 완료되면 아래 코드로 모델 저장
+python bin/dump_weights.py --save_dir swb/checkpoint --outfile swb/swb_weights.hdf5
+⑩	다시 ②-④의 과정처럼 options.json를 다시 생성(모델이 학습되면 option들이 변하기 때문)
+⑪	options.json, vocab.txt, swb_weights.hdf5 파일 3개를 swb/model 디렉토리에 옮김
+⑫	학습된 모델에 model 디렉토리 이름를 바꿔 활용했음 예시로 model(IMDB256) 256은 출력 차원이 256차원이란 의미
+
+2.	학습된 ELMo를 활용하여 문서 단위 임베딩
+깃허브/Textual-Data-Embedding/model/Multimodal TextCuboid 디렉토리를 다운받아 수행
+①	(elem) 가상환경에서 수행
+②	분류할 데이터셋에 해당하는 디렉토리로 이동. (예시: IMDB 분류 디렉토리)
+③	IMDB 분류/ELMo(IMDB256)로 문서 단위 임베딩 코드 실행
+④	이 코드에서 앞서 사전 학습된 ELMo 모델이 활용됨
+⑤	Multimodal TextCuboid/IMDB 분류/elmo_embedding/train(IMDB256) 또는 test(IMDB256) 디렉토리에 각 문서의 ELMo 임베딩 행렬이 저장됨
+
+3.	1-Channel TextCuboid 생성(논문에서는 ELMo 채널이라 불림)
+./Multimodal TextCuboid/(데이터셋) 분류 디렉토리에서 수행
+①	(base) 가상환경에서 수행
+②	Keras 1-Channel TextCubuoid 생성(ELMo) 코드 실행
+③	이 코드 내에서 수동으로 cross validation을 할 수 있는 코드가 있는데 cnt 변수 값(1~5)에 따라 train, test 데이터가 변경됨
+④	이 코드를 수행하면 TextCuboid 형태의 Train 데이터와 Test 데이터가 npy 파일로 저장됨
+
+4.	1-Channel TextCuboid 분류 또는 2-Channel TextCuboid(제안기법) 분류 실행
+./Multimodal TextCuboid/(데이터셋) 분류 디렉토리에서 수행
+①	(base) 가상환경에서 수행
+②	주의할 점은 3번에서 설정한 cross validation 관련 cnt 변수를 TextCuboid 생성에서 설정한 값과 일치시킬 것
+③	큰 메모리를 요구하므로 컴퓨터 성능이 충분해야 실행이 가능
+--------------------------------------------------------------------------------------------------------------
+
+	BERT를 활용한 모델을 사용한 경우: 1-Channel TextCuboid(Tensor Space Model) 또는 2-Channel TextCuboid(Tensor Space Model)
+	BERT의 경우는 분류할 데이터셋으로 직접 학습하는 것이 아닌 허깅페이스에서 제공된 모델을 활용(성능 상의 이점 때문)
+
+1.	학습된 BERT를 활용하여 문서 단위 임베딩(직접 사전학습 불필요)
+깃허브/Textual-Data-Embedding/model/Multimodal TextCuboid 디렉토리를 다운받아 수행
+①	(base) 가상환경에서 수행
+②	분류할 데이터셋에 해당하는 디렉토리로 이동. (예시: IMDB 분류 디렉토리)
+③	IMDB 분류/BERT로 문서 단위 임베딩 코드 실행
+④	Multimodal TextCuboid/IMDB 분류/bert_embedding/train(bert) 또는 test(bert) 디렉토리에 각 문서의 BERT 임베딩 행렬이 저장됨
+
+2.	1-Channel TextCuboid 생성(논문에서는 BERT 채널이라 불림)
+./Multimodal TextCuboid/(데이터셋) 분류 디렉토리에서 수행
+①	(base) 가상환경에서 수행
+②	Keras 1-Channel TextCubuoid 생성(BERT) 코드 실행
+③	이 코드 내에서 수동으로 cross validation을 할 수 있는 코드가 있는데 cnt 변수 값(1~5)에 따라 train, test 데이터가 변경됨
+④	이 코드를 수행하면 TextCuboid 형태의 Train 데이터와 Test 데이터가 npy 파일로 저장됨
+
+3.	1-Channel TextCuboid 분류 또는 2-Channel TextCuboid(제안기법) 분류 실행
+./Multimodal TextCuboid/(데이터셋) 분류 디렉토리에서 수행
+①	(base) 가상환경에서 수행
+②	주의할 점은 3번에서 설정한 cross validation 관련 cnt 변수를 TextCuboid 생성에서 설정한 값과 일치시킬 것
+③	큰 메모리를 요구하므로 컴퓨터 성능이 충분해야 실행이 가능
+--------------------------------------------------------------------------------------------------------------
+
