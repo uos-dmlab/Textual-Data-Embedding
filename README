@@ -1,11 +1,15 @@
-2024.03 - model/2-Channel Tensor Spaoce Model This directory contains 2-Channel Tensor Space Model(TextCuboid) experiments proposed to improve the classification performance of TextCuboid. The 2-Channel TextCuboid (Tensor Space Model) can train semantic, context, and sequence information by utilizing the Transformer structure and TextCNN structure.
+model/2-Channel Tensor Spaoce Model This directory contains 2-Channel Tensor Space Model(TextCuboid) experiments proposed to improve the classification performance of TextCuboid. The 2-Channel TextCuboid (Tensor Space Model) can train semantic, context, and sequence information by utilizing the Transformer structure and TextCNN structure.
          
-          => The model structure used in the Transformer classifier code is referenced in the link below.
-            #https://keras.io/examples/nlp/text_classification_with_transformer/
--------------------------------------------------------------------------------------------------------------------------
+         => The model structure used in the Transformer classifier code is referenced in the link below.
+         #https://keras.io/examples/nlp/text_classification_with_transformer/
+----------------------------------------------------------------------------------------------------------------------------------------------
 
-model/처음부터 엘모 학습 This code is referenced from the link below.
+model/처음부터 ELMo 학습 This code is referenced from the link below.
 #https://github.com/allenai/bilm-tf
 #https://appliedmachinelearning.wordpress.com/2019/11/30/training-elmo-from-scratch-on-custom-data-set-for-generating-embeddings-tensorflow/
 
 If you are training ELMo from scratch, you can refer to the (etc.) to train.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Files that could not be uploaded due to their size being too large can be created by running the code sequentially, and backup files also exist on the data mining lab's desktop.
