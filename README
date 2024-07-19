@@ -1,10 +1,4 @@
-Before 2022.08 - model/GloVe is an experiment code that created a TextCuboid with GloVe embedding to classify Reuters news.
-
-2022.10 - model/품사태그로 큐보이드 만들기(로이터) This is an experimental code that creates a TextCuboid using ELMo embedding vectors and part-of-speech tagging and measures classification performance with classification models TSM-DNN and CTSM-DNN.
-
-2023.04 - model/듀얼(멀티) 채널 텍스트 큐보이드 This is an experiment to construct and classify a Dual-Channel TextCuboid using two ELMos pretrained from different datasets. There are two types of ELMo: One model is trained with (A), the dataset to be classified, and the other is a model trained with a dataset similar to (A).
-
-2024.03 - model/Multimodal This directory contains 2-Channel TextCuboid (Tensor Space Model) experiments proposed to improve the classification performance of TextCuboid. The 2-Channel TextCuboid (Tensor Space Model) can train semantic, context, and sequence information by utilizing the Transformer structure and TextCNN structure.
+2024.03 - model/2-Channel Tensor Spaoce Model This directory contains 2-Channel Tensor Space Model(TextCuboid) experiments proposed to improve the classification performance of TextCuboid. The 2-Channel TextCuboid (Tensor Space Model) can train semantic, context, and sequence information by utilizing the Transformer structure and TextCNN structure.
          
           => The model structure used in the Transformer classifier code is referenced in the link below.
             #https://keras.io/examples/nlp/text_classification_with_transformer/
