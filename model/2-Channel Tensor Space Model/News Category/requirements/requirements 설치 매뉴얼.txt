@@ -1,0 +1,14 @@
+https://velog.io/@dusruddl2/RTX3090-conda-pytorch-%EC%84%A4%EC%B9%98 참고해서 torch 설치
+
+● Anaconda prompt 실행
+● 가상환경 (elem) 생성: prompt에서 아래 명령문 실행
+      conda create -n elem python=3.6.13
+● 필요 패키지 설치: prompt에서 아래 명령문 실행
+      conda activate elem
+      cd Desktop/IMDB 분류
+      pip install -r requirements/elem_requirements.txt
+● 가상환경 (class) 생성: prompt에서 아래 명령문 실행
+      conda create -n class python=3.8.13
+● 필요 패키지 설치: prompt에서 아래 명령문 실행
+      conda activate class
+      C:\Users\user\anaconda3\envs\class\python.exe -m pip install -r requirements/class_requirements.txt
