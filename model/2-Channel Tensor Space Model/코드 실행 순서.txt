@@ -3,6 +3,6 @@
 
 2. 위에서 학습한 ELMo(BERT)나 Large Copus에서 사전 학습된 ELMo(BERT)로 문서 단위 임베딩 -> elmo(bert)_embedding 디렉토리에 문서 내 단어의 임베딩 벡터값 저장(npy)
 
-3. 1-Channel TextCuboid 생성 코드로 TextCuboid 및 TextCuboid_test 생성
+3. Convert to Tensor Space Model 코드로 TextCuboid 및 TextCuboid_test 생성
 
-4. 1-Channel TextCuboid 분류 혹은 2-Channel TextCuboid 분류 코드로 성능평가
+4. 1-Channel Tensor 혹은 2-Channel Tensor 코드로 문서 분류
